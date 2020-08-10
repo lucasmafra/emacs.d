@@ -16,6 +16,7 @@
 
   (maybe-require-package 'ibuffer-projectile))
 
+(setq-default projectile-git-submodule-command nil)
 
 (provide 'init-projectile)
 ;;; init-projectile.el ends here
