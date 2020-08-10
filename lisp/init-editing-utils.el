@@ -348,10 +348,14 @@ ORIG is the advised function, which is called with its ARGS."
     (apply orig args)))
 
 (advice-add 'kmacro-call-macro :around 'sanityinc/disable-features-during-macro-call)
-
+
+;; Custom bindings
+(global-set-key (kbd "C-u") 'undo)
+
+;; Xclip
+(require-package 'xclip)
+(xclip-mode)
+
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here
-
-;; Custom bindings
-(global-set-key (kbd "C-u") 'undo)
