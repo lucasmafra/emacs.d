@@ -32,7 +32,12 @@
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
   (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
 
-(global-set-key (kbd "C-c .") 'lsp-ui-sideline-apply-code-actions)
+(with-eval-after-load 'lsp-dart
+  (global-set-key (kbd "C-c .") 'lsp-ui-sideline-apply-code-actions)
+  (global-set-key (kbd "C-c C-d t") 'lsp-dart-run-test-at-point)
+  (global-set-key (kbd "C-c C-d l") 'lsp-dart-run-last-test)
+  (global-set-key (kbd "C-c C-d n") 'lsp-dart-run-test-file)
+  (global-set-key (kbd "C-c C-d a") 'lsp-dart-run-all-tests))
 
 (provide 'init-dart)
 ;;; init-dart.el ends here
