@@ -352,10 +352,6 @@ ORIG is the advised function, which is called with its ARGS."
 ;; Custom bindings
 (global-set-key (kbd "C-u") 'undo)
 
-;; Xclip
-(require-package 'xclip)
-(xclip-mode)
-
 
 (provide 'init-editing-utils)
 ;;; init-editing-utils.el ends here

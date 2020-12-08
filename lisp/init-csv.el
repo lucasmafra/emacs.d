@@ -2,11 +2,11 @@
 ;;; Commentary:
 ;;; Code:
 
-(require-package 'csv-mode)
+;; (require-package 'csv-mode)
 
-(add-auto-mode 'csv-mode "\\.[Cc][Ss][Vv]\\'")
+;; (add-auto-mode 'csv-mode "\\.[Cc][Ss][Vv]\\'")
 
-(setq csv-separators '("," ";" "|" " "))
+;; (setq csv-separators '("," ";" "|" " "))
 
 (provide 'init-csv)
 ;;; init-csv.el ends here
