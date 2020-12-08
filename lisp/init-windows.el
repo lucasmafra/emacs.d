@@ -6,7 +6,7 @@
 ;; buffers.
 
 ;;; Code:
-
+(require-package 'ace-window)
 (require 'ace-window)
 (global-set-key (kbd "M-o") 'ace-window)
 
