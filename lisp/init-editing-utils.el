@@ -176,18 +176,13 @@
 (when (maybe-require-package 'avy)
   (global-set-key (kbd "C-;") 'avy-goto-char-timer))
 
-(require-package 'multiple-cursors)
-;; multiple-cursors
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-+") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
-;; From active region to multiple cursors:
-(global-set-key (kbd "C-c m r") 'set-rectangular-region-anchor)
-(global-set-key (kbd "C-c m c") 'mc/edit-lines)
-(global-set-key (kbd "C-c m e") 'mc/edit-ends-of-lines)
-(global-set-key (kbd "C-c m a") 'mc/edit-beginnings-of-lines)
 
+;; Multiple Cursors
+(require 'cl-lib) ;; dependency to multiple cursors
+(maybe-require-package 'multiple-cursors)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 
 ;; Train myself to use M-f and M-b instead
 (global-unset-key [M-left])

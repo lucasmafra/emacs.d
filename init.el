@@ -9,6 +9,9 @@
 ;; Produce backtraces when errors occur: can be helpful to diagnose startup issues
 ;;(setq debug-on-error t)
 
+;; Silence cl deprecated warning - https://github.com/kiwanami/emacs-epc/issues/35
+(setq byte-compile-warnings '(cl-functions))
+
 (let ((minver "24.5"))
   (when (version< emacs-version minver)
     (error "Your Emacs is too old -- this config requires v%s or higher" minver)))
@@ -72,8 +75,9 @@
 (require 'init-ivy)
 (require 'init-hippie-expand)
 (require 'init-company)
+(require 'init-yasnippet)
 (require 'init-windows)
-(require 'init-sessions)
+;; (require 'init-sessions)
 (require 'init-mmm)
 
 (require 'init-editing-utils)
@@ -132,6 +136,7 @@
 
 (require 'init-folding)
 (require 'init-dash)
+(require 'init-keychain-environment)
 
 ;;(require 'init-twitter)
 ;; (require 'init-mu)

@@ -3,7 +3,7 @@
 ;;; Code:
 
 ;;; Set load path
-
+(setq byte-compile-warnings '(cl-functions))
 (eval-when-compile (require 'cl))
 (defun sanityinc/add-subdirs-to-load-path (parent-dir)
   "Adds every non-hidden subdir of PARENT-DIR to `load-path'."

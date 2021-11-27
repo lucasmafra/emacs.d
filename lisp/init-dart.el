@@ -2,35 +2,28 @@
 ;;; Commentary:
 ;;; Code:
 
-(condition-case nil
-    (require 'use-package)
-  (file-error
-   (require 'package)
-   (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-   (package-refresh-contents)
-   (package-install 'use-package)
-   (require 'use-package)))
+(setq package-selected-packages
+      '(dart-mode lsp-mode lsp-dart lsp-treemacs flycheck company
+                  ;; Optional packages
+                  lsp-ui company hover))
 
-(use-package lsp-mode :ensure t)
-(use-package lsp-dart
-             :ensure t
-             :hook (dart-mode . lsp))
+(when (cl-find-if-not #'package-installed-p package-selected-packages)
+  (package-refresh-contents)
+  (mapc #'package-install package-selected-packages))
 
-;; Optional packages
-(use-package projectile :ensure t) ;; project management
-(use-package yasnippet
-             :ensure t
-             :config (yas-global-mode)) ;; snipets
-(use-package lsp-ui :ensure t) ;; UI for LSP
-(use-package company :ensure t) ;; Auto-complete
+(add-hook 'dart-mode-hook 'lsp)
 
-;; Optional Flutter packages
-(use-package hover :ensure t) ;; run app from desktop without emulator
+(setq gc-cons-threshold (* 100 1024 1024)
+      read-process-output-max (* 1024 1024)
+      company-minimum-prefix-length 1
+      lsp-lens-enable t
+      lsp-signature-auto-activate nil)
 
-; Make sure projectile recognizes Flutter projects
+;; Make sure projectile recognizes Flutter projects
 (with-eval-after-load 'projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
-  (add-to-list 'projectile-project-root-files-bottom-up "BUILD"))
+  ;;(add-to-list 'projectile-project-root-files-bottom-up "BUILD")
+  )
 
 (with-eval-after-load 'lsp-dart
   (global-set-key (kbd "C-c .") 'lsp-ui-sideline-apply-code-actions)

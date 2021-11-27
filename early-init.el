@@ -6,6 +6,9 @@
 ;; `package-initialize'.  We use this file to suppress that automatic
 ;; behaviour so that startup is consistent across Emacs versions.
 
+;; Silence cl deprecated warning - https://github.com/kiwanami/emacs-epc/issues/35
+(setq byte-compile-warnings '(cl-functions))
+
 ;;; Code:
 
 (setq package-enable-at-startup nil)

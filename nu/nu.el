@@ -56,7 +56,8 @@
                                     "AWS_ACCESS_KEY_ID"
                                     "AWS_SECRET_KEY"
                                     "ARTIFACTS_AWS_ACCESS_KEY_ID"
-                                    "ARTIFACTS_AWS_SECRET_ACCESS_KEY")))
+                                    "ARTIFACTS_AWS_SECRET_ACCESS_KEY"
+                                    "SPLUNK_TOKEN")))
 
 (defun num-prefix-args (arg)
   "Calculate how many times user added prefix arg from ARG.
