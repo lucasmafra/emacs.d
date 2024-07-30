@@ -22,7 +22,7 @@
 ;; Make sure projectile recognizes Flutter projects
 (with-eval-after-load 'projectile
   (add-to-list 'projectile-project-root-files-bottom-up "pubspec.yaml")
-  ;;(add-to-list 'projectile-project-root-files-bottom-up "BUILD")
+  (add-to-list 'projectile-project-root-files-bottom-up "BUILD")
   )
 
 (with-eval-after-load 'lsp-dart
